@@ -1,0 +1,31 @@
+* {
+  text-align: center;
+}
+
+h2 {
+  background-color: orangered;
+  padding: 10px;
+}
+
+.grupo {
+  width: 100%;
+}
+
+ul {
+  align-items: center;
+  width: 100%;
+}
+
+li {
+  border: 1px solid red;
+  width: 300px;
+  height: 500px;
+}
+
+li:hover {
+  background-color: orangered;
+}
+
+img {
+  width: 200px;
+}

@@ -1,0 +1,50 @@
+<h2>Escritores Locos</h2>
+
+<div class="grupo form_group">
+  <input
+    type="text"
+    placeholder="Introduce un nombre"
+    (keyup)="manejarNombre($event)"
+  />
+
+  <input
+    type="text"
+    placeholder="Introduce un país"
+    (change)="manejarCampoTexto($event)"
+  />
+
+  <select (change)="manejarCampoTexto($event)">
+    <option value="españa">España</option>
+    <option value="reino unido">Reino Unido</option>
+    <option value="chile">Chile</option>
+    <option value="canadá">Canadá</option>
+  </select>
+
+  <select (change)="manejarIds($event)" class="selectpicker">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+  </select>
+</div>
+
+<ul class="row">
+  <div *ngFor="let escritor of listaEscritores">
+    <li
+      id="{{ escritor.id }}"
+      [routerLink]="['/detalle-escritor', escritor.id]"
+    >
+      {{ escritor.nombre }} {{ escritor.apellidos }}
+      <p>{{ escritor.id }}</p>
+      <p>{{ escritor.pais }}</p>
+      <img src="{{ escritor.imagen }}" alt="{{ escritor.nombre }}" />
+    </li>
+  </div>
+</ul>
+
+<router-outlet></router-outlet>

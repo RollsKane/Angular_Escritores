@@ -1,0 +1,42 @@
+<div class="col-12 container-fluid">
+  <div class="row">
+    <div class="col-2 card" style="width: 5rem;">
+      <img src="{{ idEscritor?.imagen }}" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">
+          {{ idEscritor?.nombre }} {{ idEscritor?.apellidos }}
+        </h5>
+        <p class="card-text">{{ idEscritor?.pais }}</p>
+      </div>
+
+      <div class="row">
+        <!-- BOTONAZOS -->
+
+        <div [ngSwitch]="botoncito">
+          <a
+            *ngSwitchCase="true"
+            [routerLink]="['libros']"
+            class="botoncito btn btn-danger"
+            (click)="botonazo()"
+            >Mostrar Libros</a
+          >
+
+          <a
+            *ngSwitchCase="false"
+            [routerLink]="['/detalle-escritor', idEscritor.id]"
+            class="botoncito btn btn-primary"
+            (click)="botonazo()"
+            >Ocultar Libros</a
+          >
+        </div>
+
+        <button class="btn btn-primary" [routerLink]="['/escritores']">
+          Volver
+        </button>
+      </div>
+    </div>
+    <div class="col-9 card">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
